@@ -18,6 +18,8 @@ jobs:
     - name: Train Model (Simulate CT)
       run: python src/train.py
     - name: Run Pytest
-      run: pytest tests/
+      env:
+        PYTHONPATH: .
+      run: python -m pytest tests/
     - name: Build Docker Image
       run: docker build -t gridsense-api:latest .
