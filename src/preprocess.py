@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 import os
 from sklearn.preprocessing import LabelEncoder
-from .utils import save_artifact
+from utils import save_artifact
 
 def load_all_data(data_folder="data"):
     """Reads both CSV and Parquet files, extracts Region, and combines them."""
@@ -48,7 +48,7 @@ def engineer_features(df, is_training=True):
         df['Region_Code'] = le.fit_transform(df['Region'])
         save_artifact(le, 'artifacts/region_encoder.pkl')
     else:
-        from .utils import load_artifact
+        from utils import load_artifact
         le = load_artifact('artifacts/region_encoder.pkl')
         df['Region_Code'] = le.transform(df['Region'])
         
