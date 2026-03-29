@@ -16,7 +16,9 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Train Model (Simulate CT)
-      run: python src/train.py
+      env:
+        PYTHONPATH: .
+      run: python -m src.train
     - name: Run Pytest
       env:
         PYTHONPATH: .

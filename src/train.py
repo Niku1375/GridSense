@@ -4,8 +4,8 @@ from xgboost import XGBRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error
-from preprocess import load_all_data, engineer_features
-from utils import save_artifact
+from src.preprocess import load_all_data, engineer_features
+from src.utils import save_artifact
 
 def main():
     print("🔄 1. Loading data (CSV & Parquet)...")
