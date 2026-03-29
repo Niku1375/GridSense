@@ -1,0 +1,16 @@
+$gitignore = @"
+# Virtual Environments
+grid/
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Models & Artifacts (Ignored to prevent GitHub 100MB limit errors)
+models/
+artifacts/
+*.pkl
+"@
+Set-Content -Path .gitignore -Value $gitignore -Encoding UTF8

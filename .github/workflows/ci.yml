@@ -1,0 +1,23 @@
+name: GridSense CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Train Model (Simulate CT)
+      run: python src/train.py
+    - name: Run Pytest
+      run: pytest tests/
+    - name: Build Docker Image
+      run: docker build -t gridsense-api:latest .
